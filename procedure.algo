@@ -1,0 +1,37 @@
+PROCEDURE prodact(v1, v2, :ARRAY_OF FLOAT, VAR ps : float)
+VAR
+    i : INTEGER
+BEGIN
+    ps := 0;
+    i := 0;
+    IF (v1.lenght <> v2.lenght) THEN
+        write("Vectors with different size")
+        ps := NaN
+    END_IF
+    WHILE (i < v1.lenght) DO
+        ps := ps +v1[i]*v2[i]
+    END_WHILE
+    write(ps)
+END
+ALGORITHM orthogonal
+VAR
+    v1, v2 : ARRAY_OF FLOAT
+    ps : FLOAT;
+    i, n : INTEGER;
+BEGIN
+    i := 0;
+    write("Write v1 and v2 lenght")
+    read(n)
+
+ FOR i FROM 0 TO n-1 DO
+    read(v1[i])
+    END_FOR
+
+    FOR i FROM 0 TO n-1 DO
+    read(v2[i])
+    END_FOR
+
+    prodact(v1, v2, ps)
+
+
+END
